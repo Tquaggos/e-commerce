@@ -1,5 +1,6 @@
 package com.biolab.ecommercebiolab.entities;
 
+import com.biolab.ecommercebiolab.entities.enums.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -29,8 +30,7 @@ public class Usuario {
     @NotBlank @Size(min = 6, max = 20)
     @Column(length = 150)
     private String senha;
-    private String[] roles;
-
-
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
 }

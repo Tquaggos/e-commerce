@@ -1,8 +1,7 @@
 package com.biolab.ecommercebiolab.Repositories;
 
-import com.biolab.ecommercebiolab.entities.Pedido;
-import com.biolab.ecommercebiolab.entities.Usuario;
+import com.biolab.ecommercebiolab.entities.Pagamento;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface PedidoRepository extends JpaRepository<Pedido, Long> {
+public interface PagamentoRepository extends JpaRepository<Pagamento, Long> {
 }
