@@ -7,6 +7,7 @@ import com.biolab.ecommercebiolab.entities.Categoria;
 import com.biolab.ecommercebiolab.entities.Produto;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -31,4 +32,11 @@ public class ProdutoService {
         p.getCategorias().add(cat);
         return "Produto salvo com sucesso";
     }
+
+    public List<ProdutoDTO> mostrar(){
+        return produtoRepository.findAll().stream().map(produto -> new
+                ProdutoDTO(produto.getId(), produto.getNome(),
+                produto.getProdutos())). toList();
+    }
+
 }
