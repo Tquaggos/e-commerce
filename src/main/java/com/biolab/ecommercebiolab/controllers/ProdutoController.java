@@ -1,5 +1,6 @@
 package com.biolab.ecommercebiolab.controllers;
 
+import com.biolab.ecommercebiolab.DTOs.CategoriaDTO;
 import com.biolab.ecommercebiolab.DTOs.ProdutoDTO;
 import com.biolab.ecommercebiolab.service.ProdutoService;
 import jakarta.validation.Valid;
@@ -27,5 +28,15 @@ public class ProdutoController {
     @GetMapping
     ResponseEntity<List<ProdutoDTO>>mostrar(){
         return ResponseEntity.ok(service.mostrar());
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> editarProd(@PathVariable Long id, @RequestBody ProdutoDTO dto){
+        return ResponseEntity.ok(service.editarProd(id, dto));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletar(@PathVariable long id){
+        return ResponseEntity.noContent().build();
     }
 }

@@ -1,5 +1,6 @@
 package com.biolab.ecommercebiolab.DTOs;
 
+import com.biolab.ecommercebiolab.entities.Categoria;
 import com.biolab.ecommercebiolab.entities.Produto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -28,8 +29,23 @@ public class ProdutoDTO {
         this.descricao = descricao;
         this.preco = preco;
         this.imgUrl = imgUrl;
+
     }
 
-    public ProdutoDTO(long id, String nome, Set<Produto> produtos) {
+    public ProdutoDTO(long id, String nome, Set<Produto> produtos, long idCategoria) {
+
     }
+
+
+    public ProdutoDTO(long id, String nome, String descricao, double preco ) {
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.preco = preco;
+        this.imgUrl = imgUrl;
+
+    }
+
+
+
 }

@@ -28,6 +28,7 @@ public class CategoriaService {
         CategoriaDTO dto = new CategoriaDTO();
         dto.setId(categoria.getId());
         dto.setNome(categoria.getNome());
+        categoriaRepository.save(categoria);
         return dto;
     }
 
@@ -36,9 +37,13 @@ public class CategoriaService {
         return "Excluido com sucesso!!";
     }
 
-    public List<Categoria> buscarCat(){
-        List<Categoria> categorias = categoriaRepository.findAll();
 
-        return categorias;
+    public String editarCat(Long id, CategoriaDTO dto){
+        Categoria editarCat = categoriaRepository.findById(id).orElseThrow();
+        editarCat.setNome(dto.getNome());
+        categoriaRepository.save(editarCat);
+        return "Alterado com sucesso!!!";
     }
+
+
 }

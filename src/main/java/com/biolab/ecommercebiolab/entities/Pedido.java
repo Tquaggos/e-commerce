@@ -21,7 +21,7 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private Instant momento;
-
+    @Enumerated(EnumType.STRING)
     private StatusPedido status;
     @ManyToOne
     private Usuario cliente;

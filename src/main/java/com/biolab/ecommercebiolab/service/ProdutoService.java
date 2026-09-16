@@ -30,13 +30,31 @@ public class ProdutoService {
 
         Categoria cat = categoriaRepository.getReferenceById(dto.getIdCategoria());
         p.getCategorias().add(cat);
+        produtoRepository.save(p);
         return "Produto salvo com sucesso";
     }
 
     public List<ProdutoDTO> mostrar(){
-        return produtoRepository.findAll().stream().map(produto -> new
-                ProdutoDTO(produto.getId(), produto.getNome(),
-                produto.getProdutos())). toList();
+        return produtoRepository.findAll().stream().map(produto -> new ProdutoDTO(
+                produto.getId(), produto.getNome(),
+                produto.getDescricao(), produto.getPreco())).toList();
     }
+
+    public String delete(long id){
+        produtoRepository.deleteById(id);
+        return "Produto excluido com sucesso!!!";
+
+    }
+
+    public String editarProd(Long id, ProdutoDTO dto){
+        Produto editarProd = produtoRepository.findById(id).orElseThrow();
+        editarProd.setNome(dto.getNome());
+        editarProd.setDescricao(dto.getDescricao());
+        editarProd.setPreco(dto.getPreco());
+        editarProd.setImgUrl(dto.getImgUrl());
+        produtoRepository.save(editarProd);
+        return "Editado com sucesso!!";
+    }
+
 
 }

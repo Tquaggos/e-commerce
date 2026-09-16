@@ -27,4 +27,11 @@ public class Produto {
     joinColumns = @JoinColumn(name = "produto_id"),
     inverseJoinColumns = @JoinColumn(name = "categoria_id"))
     private Set<Categoria> categorias = new HashSet<>();
+
+    public Set<Produto> getProdutos() {
+        return Set.of();
+    }
+
+
+
 }

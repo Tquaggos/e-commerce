@@ -32,4 +32,9 @@ public class CategoriaController {
     public ResponseEntity<?> deletarCat(@PathVariable long id){
         return ResponseEntity.noContent().build();
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> editarCat(@PathVariable Long id, @RequestBody CategoriaDTO dto){
+        return ResponseEntity.ok(service.editarCat(id, dto));
+    }
 }
